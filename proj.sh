@@ -1,6 +1,6 @@
 function bootstrap {
     docker stop $(docker ps -aq)
-    rm ./collabfield/tmp/pids/server.pid
+    rm ./web/tmp/pids/server.pid
     docker-compose build
     docker-compose run web bundle
     #docker-compose run frontend yarn
@@ -12,17 +12,17 @@ function bootstrap {
 }
 
 function build {
-    rm ./collabfield/tmp/pids/server.pid
+    rm ./web/tmp/pids/server.pid
     docker-compose build
 }
 
 function build-start {
-    rm ./collabfield/tmp/pids/server.pid
+    rm ./web/tmp/pids/server.pid
     docker-compose up --build
 }
 
 function start {
-    rm ./collabfield/tmp/pids/server.pid
+    rm ./web/tmp/pids/server.pid
     docker-compose up -d
     docker ps
 }
@@ -37,7 +37,7 @@ function down {
 
 function restart {
     docker stop $(docker ps -aq)
-    rm ./collabfield/tmp/pids/server.pid
+    rm ./web/tmp/pids/server.pid
     #docker-compose run frontend ng build
     docker-compose up -d
     docker ps
@@ -45,7 +45,7 @@ function restart {
 
 function nuke-containers {
     docker stop $(docker ps -aq)
-    rm ./collabfield/tmp/pids/server.pid
+    rm ./web/tmp/pids/server.pid
     docker rm $(docker ps -aq)
 }
 
