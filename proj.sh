@@ -18,7 +18,7 @@ function build {
 
 function build-start {
     rm ./web/tmp/pids/server.pid
-    docker-compose up --build
+    docker-compose up -d --build
 }
 
 function start {
